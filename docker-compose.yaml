@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  php-fpm:
+    container_name: php-fpm
+    build:
+      context: ./docker/php
+      dockerfile: Dockerfile
+    depends_on:
+      - mariadb
+    networks:
+      - backend
+    volumes:
+    - ./:/app
+
+  nginx:
+    container_name: nginx
+    build:
+      context: ./docker/nginx
+      dockerfile: Dockerfile
+    depends_on:
+      - php-fpm
+    networks:
+      - backend
+    ports:
+    - 8000:80
+    volumes:
+    - ./:/app
+
+  mariadb:
+    container_name: mariadb
+    image: mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: secret
+      MYSQL_DATABASE: dev_mlcrm
+    networks:
+      - backend
+    volumes:
+    - ./docker/db:/var/lib/mysql
+
+networks:
+  backend:

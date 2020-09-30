@@ -1,0 +1,28 @@
+{
+    "name": "mlcrm/skeleton",
+    "description": "Simple template to start develop",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mutus Liber",
+            "email": "esa659@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^5.2@dev"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
+}
