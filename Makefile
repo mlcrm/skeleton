@@ -12,3 +12,5 @@ show:
 	@docker ps -a
 	@echo "==================== all build images ====================== "
 	@docker images
+	@echo "==================== all networks ========================== "
+	@docker network ls
