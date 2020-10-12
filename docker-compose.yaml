@@ -42,6 +42,7 @@ services:
     - ./docker/db:/var/lib/mysql
 
   phpmyadmin:
+    container_name: phpmyadmin
     image: phpmyadmin
     depends_on:
       - db
