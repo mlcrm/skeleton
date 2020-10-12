@@ -14,3 +14,7 @@ show:
 	@docker images
 	@echo "==================== all networks ========================== "
 	@docker network ls
+migration:
+	@docker exec -it php-fpm php bin/console make:migration
+migrate:
+	@docker exec -it php-fpm php bin/console doctrine:migrations:migrate
